@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>#{str.criminalFormTitle}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h2>#{str.formHeader}</h2>
+                <p:fieldset legend="#{str.criminalLegendForm}">
+                    <h:form>
+                    <h:panelGrid columns="1">
+                        <p:inputText placeholder="#{str.criminalNamePrompt}"
+                                     value="#{criminalBean.criminal.nombreCriminal}"></p:inputText>
+                                     
+                                  
+                                     
+                                     <p:inputText placeholder="#{str.typeCriminalNamePrompt}"
+                                                  value="#{criminalBean.criminal.tipo}"></p:inputText>
+                                                  
+                                                  
+                                                  <p:inputText placeholder="#{str.condemn}"
+                                                  value="#{criminalBean.criminal.condena}"></p:inputText>   
+                                                  
+                                     <p:selectOneMenu value="#{criminalBean.criminal.carcel.idCarcel}">
+                            <f:selectItems value="#{criminalBean.carceles}" var="e"
+                                           itemLabel="#{e.nombreCarcel}" itemValue="#{e.idCarcel}" />
+                        </p:selectOneMenu>
+                        
+                        <p:selectOneMenu value="#{criminalBean.criminal.usuario.idUsuario}">
+                            <f:selectItems value="#{criminalBean.usuarios}" var="u"
+                                           itemLabel="#{u.nombreUsuario}" itemValue="#{u.idUsuario}" />
+                        </p:selectOneMenu>
+                          </h:panelGrid>
+                    <p:commandButton value="#{str.buttonSave}"
+                                     action="#{criminalBean.guardar()}"></p:commandButton>
+                                     <p:commandButton value="#{str.buttonDelete}"
+                                                      action="#{criminalBean.eliminar()}"></p:commandButton>
+                                     <p:commandButton value="#{str.buttonCancel}"
+                                                      action="#{criminalBean.cancelar()}"></p:commandButton>
+                                                      
+        </h:form>
+                </p:fieldset>
+            </ui:define>
+        </ui:composition> 
+    </h:body>
+</html>

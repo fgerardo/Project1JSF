@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>#{str.carcelFormTitle}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h2>#{str.jailFormHeader}</h2>
+                <p:fieldset legend="#{str.jailLegendForm}">
+                    <h:form>
+ 
+                        <p:inputText placeholder="#{str.jailNameHeader}"
+                                     value="#{carcelBean.carcel.nombreCarcel}"></p:inputText>
+                                     
+                                     
+                                     
+                                     <p:inputText placeholder="#{str.addressNameHeader}"
+                                                  value="#{carcelBean.carcel.direccion}"></p:inputText>
+                                                  
+                                                  
+                                                  
+                                                  
+                                                  <p:inputText placeholder="#{str.directorNameHeader}"
+                                                  value="#{carcelBean.carcel.nommbreD}"></p:inputText>
+                                                  
+                                                  
+                                                  
+                                     
+                        
+                        <p:commandButton value="#{str.buttonSave}"
+                                         action="#{carcelBean.guardar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonDelete}"
+                                         action="#{carcelBean.eliminar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonCancel}"
+                                         action="#{carcelBean.cancelar()}"></p:commandButton>
+
+                    </h:form>
+                </p:fieldset>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
